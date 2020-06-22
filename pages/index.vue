@@ -9,10 +9,10 @@
         </p>
         <div id="buttons-container">
           <span>
-            <button type="button" id="button-one" class="btn btn-warning"><nuxt-link id="button-one-link" to="/">Get Started</nuxt-link></button>
+            <button type="button" id="button-one" class="btn btn-warning"><nuxt-link id="button-one-link" to="/register">Get Started</nuxt-link></button>
           </span>
           <span>
-            <button type="button" id="button-two" class="btn btn-warning"><nuxt-link id="button-two-link" to="/">Register</nuxt-link></button>
+            <button type="button" id="button-two" class="btn btn-warning"><nuxt-link id="button-two-link" to="/login">Login</nuxt-link></button>
           </span>
         </div>
       </section>
@@ -21,28 +21,27 @@
       </section>
       </div>
     </div>
-    <hr>
     <div id="section-two-container">
       <div class="row">
         <section class="col-md-4" id="column-container">
           <div id="column">
             <img src="../assets/clock.svg" alt="clock image">
             <h5>Productivity</h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto ipsa omnis cumque hic molestiae! Vero nulla illo magnam velit. Explicabo voluptate accusamus exercitationem soluta nesciunt nam! Alias id laborum nesciunt?</p>
+            <p>Let's define productivity. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently.</p>
           </div>
         </section>
         <section class="col-md-4" id="column-container">
           <div id="column">
             <img src="../assets/schedule.svg" alt="clock image">
             <h5>Productivity</h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto ipsa omnis cumque hic molestiae! Vero nulla illo magnam velit. Explicabo voluptate accusamus exercitationem soluta nesciunt nam! Alias id laborum nesciunt?</p>
+            <p>Let's define productivity. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently.</p>
           </div>
         </section>
         <section class="col-md-4" id="column-container">
           <div id="column">
             <img src="../assets/tasks.svg" alt="clock image">
             <h5>Productivity</h5>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto ipsa omnis cumque hic molestiae! Vero nulla illo magnam velit. Explicabo voluptate accusamus exercitationem soluta nesciunt nam! Alias id laborum nesciunt?</p>
+            <p>Let's define productivity. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently.</p>
           </div>
         </section>
       </div>
@@ -143,7 +142,7 @@ export default {
   }
 
   #column img {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
     display: flex;
   }

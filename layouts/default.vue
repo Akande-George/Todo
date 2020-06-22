@@ -10,11 +10,11 @@ body {
   color: white;
 }
 
-a {
+#link{
   text-decoration: none;
 }
 
-a:hover {
+#link:hover {
   text-decoration: none;
 }
 </style>
