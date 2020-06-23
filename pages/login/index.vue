@@ -1,20 +1,20 @@
 <template>
   <div id="login">
       <div class="card align-middle mt-5 col-md-6 pt-3" id="form-container">
-          <form>
+          <form @submit.prevent="onSubmit">
               <div id="logo" class="mt-4">
                   <Logo />
               </div>
               <h4 class="mt-3">Sign In</h4>
               <div id="form-info">
                 <div class="form-group w-75 p-3" id="inputs">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email">
+                    <input type="email" class="form-control" v-model="email" id="exampleFormControlInput1" placeholder="email">
                 </div>
                 <div class="form-group w-75 p-3" id="inputs">
-                    <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="password">
+                    <input type="password" class="form-control" v-model="password" id="exampleFormControlInput1" placeholder="password">
                 </div>
                 <div id="button">
-                    <button type="button" class="btn btn-warning w-75 p-3">Login</button>
+                    <button type="submit" class="btn btn-warning w-75 p-3">Login</button>
                 </div>
                 <p>Create an account <nuxt-link id="link" to="/register">Register</nuxt-link></p>
                 <p>Go back <nuxt-link id="link" to="/">Home</nuxt-link></p>
@@ -24,16 +24,36 @@
   </div>
 </template>
 
-<script scoped>
+<script>
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
+
 import Logo from '@/components/Logo'
+
 export default {
     components: {
         Logo
+    },
+    data () {
+        return {
+            email: '',
+            password: '',
+            error: ''
+        }
+    },
+    methods: {
+        onSubmit () {
+            firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
+                this.$router.push('/dashboard')
+            }).catch(error => {
+                this.error = error
+            })
+        }
     }
 }
 </script>
 
-<style>
+<style scoped>
 #login {
     width: 100%;
     height: 100vh;

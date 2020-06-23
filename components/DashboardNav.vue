@@ -10,22 +10,22 @@
     <ul class="navbar-nav mr-auto" id="menu-container">
       <li class="nav-item">
         <div id="menu-list-cover">
-           <nuxt-link class="nav-link" id="menu-list" to="/">Todos</nuxt-link>
+           <nuxt-link class="nav-link" id="menu-list" to="#">Todos</nuxt-link>
         </div>
       </li>
       <li class="nav-item" id="list">
         <div id="menu-list-cover">
-           <nuxt-link class="nav-link" id="menu-list" to="/about">Edit</nuxt-link>
+           <nuxt-link class="nav-link" id="menu-list" to="#">Edit</nuxt-link>
         </div>
       </li>
       <li class="nav-item">
         <div id="menu-list-cover">
-           <nuxt-link class="nav-link" id="menu-list" to="/register">Profile</nuxt-link>
+           <nuxt-link class="nav-link" id="menu-list" to="#">Profile</nuxt-link>
         </div>
       </li>
       <li class="nav-item">
         <div id="menu-list-cover">
-           <nuxt-link class="nav-link" id="menu-list" to="/register"><button type="button" class="btn btn-warning">Exit</button></nuxt-link>
+           <nuxt-link class="nav-link" id="menu-list" to="#"><button type="button" @click="signout" class="btn btn-warning">Exit</button></nuxt-link>
         </div>
       </li>
     </ul>
@@ -35,11 +35,22 @@
 </template>
 
 <script>
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
+
 import Logo from './Logo'
 
 export default {
   components: {
     Logo
+  },
+  methods: {
+    signout () {
+      firebase.auth().signOut().then(result => {
+        console.log(result)
+        this.$router.push('/login')
+      })
+    }
   }
 }
 </script>

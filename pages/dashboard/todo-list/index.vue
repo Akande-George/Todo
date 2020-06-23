@@ -8,6 +8,11 @@
                 <Todo :month="todo.month" :day="todo.day" :active="todo.active" :title="todo.title" />
             </li>
           </ul>
+          <div id="add-button">
+              <nuxt-link to="/dashboard/todo-list/add-todo" id="link">
+                  <button type="button" class="btn btn-warning">Add Todo</button>
+              </nuxt-link>
+          </div>
       </div>
   </div>
 </template>
@@ -56,4 +61,25 @@ li {
     list-style-type: none;
 }
 
+#add-button button {
+    width: 17%;
+    height: auto;
+    margin-left: 70%;
+    border: none;
+    background-color: #D26637;
+    transition: 0.5s;
+}
+
+#add-button button:hover {
+    opacity: 0.5s;
+    transition: 0.5s;
+}
+
+#link {
+    text-decoration: none;
+}
+
+#link:hover {
+    text-decoration: none;
+}
 </style>
