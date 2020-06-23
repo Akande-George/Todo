@@ -4,12 +4,12 @@
       <div id="add-todo-container">
           <h4 class="p-4">ADD TODO</h4>
           <section class="mx-5 p-3">
-              <form class="mx-5">
+              <form class="mx-5" @submit.prevent="addTodo">
                 <div class="form-group" id="inputs">
-                    <input type="text" class="form-control p-4" id="exampleFormControlInput1" placeholder="TITLE">
+                    <input type="text" class="form-control p-4" v-model="todo.title" id="exampleFormControlInput1" placeholder="TITLE">
                 </div>
                 <div class="form-group" id="inputs">
-                    <select class="form-control" id="exampleFormControlSelect1" aria-placeholder="MONTH">
+                    <select class="form-control" v-model="todo.month" id="exampleFormControlSelect1" aria-placeholder="MONTH">
                         <option>JANUARY</option>
                         <option>FEBRUARY</option>
                         <option>MARCH</option>
@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="form-group" id="inputs">
-                    <select class="form-control" id="exampleFormControlSelect1" aria-placeholder=" DAY OF THE WEEK">
+                    <select class="form-control" v-model="todo.week" id="exampleFormControlSelect1" aria-placeholder=" DAY OF THE WEEK">
                         <option>Monday</option>
                         <option>Tuesday</option>
                         <option>Wednesday</option>
@@ -35,10 +35,10 @@
                     </select>
                 </div>
                 <div class="form-group" id="inputs">
-                    <input type="number" class="form-control p-4" id="exampleFormControlInput1" placeholder="DATE">
+                    <input type="number" v-model="todo.day" class="form-control p-4" id="exampleFormControlInput1" placeholder="DATE">
                 </div>
                 <div class="form-group" id="inputs">
-                    <select class="form-control" id="exampleFormControlSelect1" aria-placeholder="ACTIVE">
+                    <select class="form-control" v-model="todo.active" id="exampleFormControlSelect1" aria-placeholder="ACTIVE">
                         <option>Blue</option>
                         <option>Red</option>
                         <option>Green</option>
@@ -49,7 +49,7 @@
                     </select>
                 </div>
                 <div class="form-group" id="inputs">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="TODO CONTENT" rows="3"></textarea>
+                    <textarea class="form-control" v-model="todo.content" id="exampleFormControlTextarea1" placeholder="TODO CONTENT" rows="3"></textarea>
                 </div>
                 <div id="add-button" class="mt-4">
                     <button type="submit" class="btn btn-warning">SUBMIT</button>
@@ -66,7 +66,28 @@ import DashboardNav from '~/components/DashboardNav'
 export default {
     components: {
         DashboardNav
+    },
+    data () {
+        return {
+            todo: [
+                {
+                    title: '',
+                    month: '',
+                    day: '',
+                    date: '',
+                    week: '',
+                    active: '',
+                    content: ''
+                }
+            ]
+        }
+    },
+    methods: {
+        addTodo () {
+            alert(`today's date is ${this.todo.day}th of ${this.todo.month}`)
+        }
     }
+
 }
 </script>
 
