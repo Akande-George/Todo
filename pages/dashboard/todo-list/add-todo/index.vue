@@ -35,7 +35,7 @@
                     </select>
                 </div>
                 <div class="form-group" id="inputs">
-                    <input type="number" v-model="todo.day" class="form-control p-4" id="exampleFormControlInput1" placeholder="DATE">
+                    <input type="number" v-model="todo.date" class="form-control p-4" id="exampleFormControlInput1" placeholder="DATE">
                 </div>
                 <div class="form-group" id="inputs">
                     <select class="form-control" v-model="todo.active" id="exampleFormControlSelect1" aria-placeholder="ACTIVE">
@@ -52,7 +52,7 @@
                     <textarea class="form-control" v-model="todo.content" id="exampleFormControlTextarea1" placeholder="TODO CONTENT" rows="3"></textarea>
                 </div>
                 <div id="add-button" class="mt-4">
-                    <button type="submit" class="btn btn-warning">SUBMIT</button>
+                    <button type="submit" class="btn btn-warning">{{ submit }}</button>
                 </div>
               </form>
           </section>
@@ -69,6 +69,7 @@ export default {
     },
     data () {
         return {
+            submit: 'SUBMIT',
             todo: [
                 {
                     title: '',
@@ -82,9 +83,15 @@ export default {
             ]
         }
     },
+    mounted () {
+        alert('this is mounted')
+    },
     methods: {
         addTodo () {
-            alert(`today's date is ${this.todo.day}th of ${this.todo.month}`)
+            if (this.todo) {
+                this.$store.commit('addTodo', this.todo)
+                this.submit = 'SUBMITTED'
+            }
         }
     }
 
@@ -93,7 +100,7 @@ export default {
 
 <style scoped>
 form #inputs {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     margin-top: 4%;
 }

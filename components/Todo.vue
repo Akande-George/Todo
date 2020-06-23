@@ -2,10 +2,10 @@
   <section id="todo">
     <div id="info" :class="active" class="row mt-5">
         <div class="col-md-2">
-            <h1>16</h1>
+            <h1>{{ date }}</h1>
         </div>
         <div class="col-md-3">
-            <p class="mt-3">{{ day }}</p>
+            <p class="mt-3">{{ week }}</p>
             <p>{{ month }}, 2020</p>
         </div>
         <div class="mt-4 col-md-7">
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    props: ['month', 'day', 'active', 'title']
+    props: ['month', 'week', 'active', 'title', 'date']
 }
 </script>
 
