@@ -61,7 +61,11 @@
 </template>
 
 <script>
+import * as firebase from 'firebase/app'
+import 'firebase/firestore'
+
 import DashboardNav from '~/components/DashboardNav'
+import { firestore } from 'firebase'
 
 export default {
     components: {
@@ -83,14 +87,32 @@ export default {
             ]
         }
     },
-    mounted () {
-        alert('this is mounted')
-    },
     methods: {
         addTodo () {
             if (this.todo) {
-                this.$store.commit('addTodo', this.todo)
-                this.submit = 'SUBMITTED'
+                firebase.firestore().collection('todos').add({}).then((res) => {
+                    firebase.firestore().collection('todos').doc(res.id).set({
+                        active: this.todo.active,
+                        content: this.todo.content,
+                        date: this.todo.date,
+                        month: this.todo.month,
+                        title: this.todo.title,
+                        week: this.todo.week
+                    })
+                }).then((res) => {
+                    this.$store.commit('addTodo', {
+                        active: this.todo.active,
+                        content: this.todo.content,
+                        date: this.todo.date,
+                        month: this.todo.month,
+                        title: this.todo.title,
+                        week: this.todo.week
+                    })
+                    this.submit = 'SUBMITTED'
+                    this.$router.push('/dashboard/todo-list')
+                }).catch((err) => {
+                    console.log(err)
+                })  
             }
         }
     }

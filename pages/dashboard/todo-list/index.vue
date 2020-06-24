@@ -18,6 +18,9 @@
 </template>
 
 <script>
+import * as firebase from 'firebase/app'
+import 'firebase/firestore'
+
 import DashboardNav from '~/components/DashboardNav'
 import Todo from '~/components/Todo'
 
@@ -26,37 +29,17 @@ export default {
         DashboardNav,
         Todo
     },
-    // data () {
-    //     return {
-    //         todos : [
-    //             {
-    //                 id: 1,
-    //                 month: 'January',
-    //                 day: 'Wednesday',
-    //                 active: 'blue',
-    //                 title: "FINISH UP DAD'S WEBSITE"
-    //             },
-    //             {
-    //                 id: 2,
-    //                 month: 'March',
-    //                 day: 'Monday',
-    //                 active: 'green',
-    //                 title: 'PRAY FOR NIGERIA'
-    //             },
-    //             {
-    //                 id: 3,
-    //                 month: 'December',
-    //                 day: 'Sunday',
-    //                 active: 'purple',
-    //                 title: 'CALL YOUR BOSS'
-    //             }
-    //         ]
-    //     }
-    // }
     computed: {
         todos () {
             return this.$store.state.todos
         }
+    },
+    mounted () {
+        firebase.firestore().collection('todos').get().then((res) => {
+            res.forEach(x => {
+                this.$store.commit('setTodo', x.data())
+            })
+        })
     }
 }
 </script>

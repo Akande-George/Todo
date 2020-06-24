@@ -8,6 +8,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" id="menu-container">
+      <li class="nav-item" id="list">
+        <div id="menu-list-cover">
+           <nuxt-link class="nav-link" id="menu-list" to="/dashboard">Dashboard</nuxt-link>
+        </div>
+      </li>
       <li class="nav-item">
         <div id="menu-list-cover">
            <nuxt-link class="nav-link" id="menu-list" to="/dashboard/todo-list">Todos</nuxt-link>
