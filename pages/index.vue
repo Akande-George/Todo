@@ -4,7 +4,7 @@
     <div id="section-container">
       <div class="row">
       <section class="col-md-7" id="section-one-a">
-        <h1>A BETTER<br>WAY</h1>
+        <h1>A-BETTER<br>WAY</h1>
         <p>Let's define productivity. Productivity is a measure of efficiency of a person completing a task. We often assume that productivity means getting more things done each day. Wrong. Productivity is getting important things done consistently. And no matter what you are working on, there are only a few things that are truly important.
         </p>
         <div id="buttons-container">
