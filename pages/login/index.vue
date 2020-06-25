@@ -44,7 +44,7 @@ export default {
     methods: {
         onSubmit () {
             firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
-                this.$router.push('/dashboard')
+                this.$router.push('/dashboard/todo-list')
             }).catch(error => {
                 this.error = error
             })
