@@ -52,7 +52,7 @@ export default {
         onSubmit () {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(user => {
                 console.log(user)
-                this.$router.push('/dashboard')
+                this.$router.push('/login')
             }).catch(error => {
                 this.error = error
             })
